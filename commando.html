@@ -1,0 +1,193 @@
+<head>
+  <title>Commando Chat</title>
+</head>
+
+<body>
+
+</body>
+
+<!-- <template name="landingPage">
+  {{#if currentUser}}
+    {{> header}}
+  {{else}}
+    {{> loginPage}}
+  {{/if}}
+</template>
+
+<template name="header">
+  <nav class="navbar">
+    <ul class="nav nav-pills">
+      <li><a href="#">Homebase</a></li>
+      <li><a href="#">HQ Communications</a></li>
+      <li><a href="#">Today's Battle Plans</a></li>
+    </ul>
+  </nav>
+</template> -->
+
+<template name="loginPage">
+  <header>
+    <h1>Login to Commando Chat:</h1>
+  </header>
+  <p>Only the manliest of men may enter...</p>
+  {{> loginButtons}}
+</template>
+
+<template name="home">
+  <div id="headerWrapper">
+    <nav>
+      <div class="container-fluid">
+        <ul class="nav nav-pills">
+          <li class="dropdown col-sm-2">
+            <a href="#" class="btn btn-default dropdown-toggle" type="button" id="projectSelector" data-toggle="dropdown" aria-expanded="false">
+              Project <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="projectSelector">
+              <li><a href="#">Project 1</a></li>
+              <li><a href="#">Project 2</a></li>
+              <li><a href="#">Project 3</a></li>
+              <li><a href="#">Project 4</a></li>
+            </ul>
+          </li>
+          <li class="col-sm-2">
+            <input type="text" name="postSearchBar" placeholder="Search Posts"/>
+            <span class="glyphicon glyphicon-search"></span>
+          </li>
+          <li class="col-sm-3"><h2>header logo goes here! COMMANDO CHAT</h2></li>
+          <li class="col-sm-2"><a href="#" class="btn btn-default">Log In</a></li>
+          <li class="col-sm-2"><a href="#" class="btn btn-default">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div id="bodyWrapper">
+    <div class="checklists">
+      <div class="checklistColumns">
+        <div class="listHeader">
+          <h2>Ideas</h2>
+        </div>
+        <div class="listItem">
+          <a href="#" class="listItemName">Make a chatting program with a to-do list</a>
+          <div class="badges">
+            <div title="This card has a description/comment" class="hideIt"></div>
+            <div title="This card has 1 comment" class="hideIt"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="addOneButton">&boxVH;</button>
+      </div>
+
+      <div class="checklistColumns">
+        <div class="listHeader">
+          <h2>To Do's</h2>
+        </div>
+        <div class="listItem">
+          <a href="#" class="listItemName">break down each page by segments</a>
+          <div class="badges">
+            <div title="This card has a description/comment" class="hideIt"></div>
+            <div title="This card has 1 comment" class="hideIt"></div>
+          </div>
+        </div>
+        <div class="listItem">
+          <a href="#" class="listItemName">code each segments</a>
+          <div class="badges">
+            <div title="This card has a description/comment" class="hideIt"></div>
+            <div title="This card has 1 comment" class="hideIt"></div>
+          </div>
+        </div>
+        <button type="submit" class="addOneButton">&boxVH;</button>
+      </div>
+
+      <div class="checklistColumns">
+        <div class="listHeader">
+          <h2>In Progress</h2>
+        </div>
+        <div class="listItem">
+          <a href="#" class="listItemName">copy trello by sections</a>
+          <div class="badges">
+            <div title="This card has a description/comment" class="hideIt"></div>
+            <div title="This card has 1 comment" class="hideIt"></div>
+          </div>
+        </div>
+        <div class="listItem">
+          <a href="#" class="listItemName">code in the empty divs of all segments</a>
+          <div class="badges">
+            <div title="This card has a description/comment" class="hideIt"></div>
+            <div title="This card has 1 comment" class="hideIt"></div>
+          </div>
+        </div>
+        <button type="submit" class="addOneButton">&boxVH;</button>
+      </div>
+
+      <div class="checklistColumns">
+        <div class="listHeader">
+          <h2>Completed</h2>
+        </div>
+        <div class="listItem">
+          <a href="#" class="listItemName">stare at the project in awe</a>
+          <div class="badges">
+            <div title="This card has a description/comment" class="hideIt"></div>
+            <div title="This card has 1 comment" class="hideIt"></div>
+          </div>
+        </div>
+        <div class="listItem">
+          <a href="#" class="listItemName">draw layout of different pages</a>
+          <div class="badges">
+            <div title="This card has a description/comment" class="hideIt"></div>
+            <div title="This card has 1 comment" class="hideIt"></div>
+          </div>
+        </div>
+        <button type="submit" class="addOneButton">&boxVH;</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="cardWindow" class="hideIt"><!-- whole page wrapper -->
+    <div class="cardWrapper"><!-- div big enough to contain card info and centered-->
+      <div class="cardHeader">
+        <span class="cardImageGlyphicon"></span>
+        <h3>Title = The Name of the Idea/ToDo/Doing/Completed Task (listItemName)</h3>
+        <a href="#" id="exitButton">X</a>
+      </div>
+
+      <div class="cardBody">
+        <div class="cardDescriptions">
+          <h3>Description</h3>
+          <p>spit out text from the DB here stored in this particular document</p>
+        </div>
+        <div class="cardOptions">
+          <a href="#">Share</a>
+          <a href="#">Task Status (drop down choice of Ideas/ToDo/Doing/Done)</a>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="cardLogs">
+        <div class="logHeader">
+          <span class="activityImageGlyphicon"></span>
+          <h3>Activity</h3>
+        </div>
+        <div class="activityLogs">
+          <div class="individualLogs Media Media--center">
+            <img class="Media-figure" src="/images/abc.jpg" alt="profileName from FB/Google+/Twitter">
+            <!-- add mini sergeant logo next to pic -->
+            <p class="Media-body">this is the text for ABC {date}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="chattingRoom" class="hideIt">
+  </div>
+</template>
+
+<template name="footer">
+  <div class="row" id="footer">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">Copyright 2015, Commando Chat.</div>
+    <div class="col-md-2"></div>
+  </div>
+</template>
