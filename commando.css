@@ -1,3 +1,18 @@
+/* COLOR SCHEMES
+#B5B5B5   GREY
+#92DCE0   BLUISH TEAL
+#0092D7   BLUE
+#3EC303   GREEN
+#EE8D09   ORANGE
+
+#E18A07   DARK ORANGE
+#D9853B   DIRTY ORANGE
+#74AFAD   DIRTY GRITTY GREEN
+#DCF0F7   SUPER LIGHT BABY BLUE
+#CCCCCC   SUPER LIGHT GRAY
+*/
+
+
 .Media {
   display: flex;
   align-items: flex-start;
@@ -31,26 +46,183 @@
   margin: 0 0 0 1em;
 }
 
-/* ---------^Media Object^---------*/
-.navbar {
-  width: 100%;
+/* -----^-----Media Object-----^----- */
 
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+/* -----^-----Fixes DIV having 0px height-----^----- */
+#mainLayout {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#centerSegment {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a, a:link, a:visited, a:hover, a:focus, a:active {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* -----^-----box sizing everything-----^----- */
+.centerIt {
+  text-align: center;
+}
+
+li > h1 {
+  margin: 0;
+  margin-top: 5px;
+}
+
+.nav, .navbar {
+  width: 100%;
+  margin: 0;
+  background-color: #DCF0F7;
+}
+
+.navbarTopMargin {
+  margin-top: 10px;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.navbar-form {
+  margin: 0;
+  margin-top: 12px;
 }
 
 .hideIt {
   display: none;
 }
 
-#headerWrapper {
-
+.navbar-nav > li > a {
+  padding: 5px;
 }
 
+#headerWrapper {
+  /*overflow: hidden;*/
+  background-color: #DCF0F7;
+}
+
+.headerItems {
+  height: 50px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border: 1px red solid;
+}
+
+#projectSelector {
+/*  position: relative;
+  top: 50%;
+  transform: translateY(-50%);*/
+}
+
+/* --- Body Wrapper Begins here --- */
 #bodyWrapper {
   clear: both;
 }
 
-#cardWindow {
+.checklists {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #DCF0F7;
+  padding: 10px;
+  padding-top: 1.5em;
+}
 
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.checklistColumns {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 1.3em;
+  background-color: #CCCCCC;
+  border-radius: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.checklistColumns h3 {
+  margin-top: 10px;
+}
+
+.listItem {
+  padding: 0.3em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background-color: #FFFFFF;
+  border-radius: 0.3em;
+  margin-bottom: 10px;
+}
+
+div.listItem:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.oneMoreButton {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #FFFFFF;
+}
+
+.oneMoreButton:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.listItem > hr {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.badges {
+  display: block;
+  float: left;
+}
+
+.clearFloat {
+  clear: both;
+}
+
+#cardWindow {
+  background-color: rgba(0,0,0,.6);
 }
 
 #chattingRoom {
@@ -58,6 +230,9 @@
 }
 
 #footer {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   text-align: center;
   background-color: black;
   color: white;

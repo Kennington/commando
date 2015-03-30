@@ -1,5 +1,8 @@
 <head>
   <title>Commando Chat</title>
+
+  <link rel="shortcut icon" type="image/png" href="/images/abc.png" /> 
+  <link rel="icon" type="image/png" href="/images/abc.png" /> 
 </head>
 
 <body>
@@ -25,119 +28,181 @@
 </template> -->
 
 <template name="loginPage">
-  <header>
-    <h1>Login to Commando Chat:</h1>
-  </header>
-  <p>Only the manliest of men may enter...</p>
-  {{> loginButtons}}
+  <div class="centerIt">
+    <p>Only the manliest of men will enter...</p>
+    <h1>Commando Chat!!</h1>
+    <section class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8"><hr /></div>
+      <div class="col-xs-2"></div>
+    </section>
+    <h3>login now:</h3>
+    {{> loginButtons}}
+    <br />
+    <br />
+  </div>
+  {{> footer}}
 </template>
 
-<template name="home">
-  <div id="headerWrapper">
-    <nav>
-      <div class="dropdown col-sm-2">
-        <a href="#" class="btn btn-default dropdown-toggle" type="button" id="projectSelector" data-toggle="dropdown" aria-expanded="false">
-          Project <span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="projectSelector">
-          <li><a href="#">Project 1</a></li>
-          <li><a href="#">Project 2</a></li>
-          <li><a href="#">Project 3</a></li>
-          <li><a href="#">Project 4</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-2">
-        <input type="text" name="postSearchBar" placeholder="Search Posts"/>
-        <span class="glyphicon glyphicon-search"></span>
-      </div>
-      <div class="col-sm-3"><h2>header logo goes here! COMMANDO CHAT</h2></div>
-      <div class="col-sm-2"><a href="#" class="btn btn-default">Log In</a></div>
-      <div class="col-sm-2"><a href="#" class="btn btn-default">Sign Up</a></div>
-    </nav>
-  </div>
+<template name="headerWrapper">
+  <nav id="headerWrapper" class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="headerItems col-sm-1 dropdown">
+          <a href="#" id="projectSelector" class="navbarTopMargin dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Project <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Project 1</a></li>
+            <li><a href="#">Project 2</a></li>
+            <li><a href="#">Project 3</a></li>
+            <li><a href="#">Project 4</a></li>
+          </ul>
+        </li>
+        <li class="headerItems col-sm-3">
+          <div class="navbarTopMargin">
+            <input type="text" />
+            <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+          </div>
+        </li>
+        <li class="headerItems col-sm-6"><h1>Title</h1></li>
+        <li class="headerItems col-sm-1"><a class="navbarTopMargin" href="#">Sign Up</a></li>
+        <li class="headerItems col-sm-1"><a class="navbarTopMargin" href="#">Log In</a></li>
+      </ul>
+    </div>
+  </nav>
+</template>
 
+<template name="listItem">
+  {{#each posts}}
+    <div class="listItem">
+      <a href="#">{{description}}</a>
+      <hr />
+      {{#if dateUpdated!=null}}
+        <div class="badges" title="This card has been Updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+      {{/if}}
+      {{#if comments!=null}}
+        <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+      {{/if}}
+      <div class="clearFloat"></div>
+    </div>
+  {{/each}}
+</template>
+
+<template name="bodyWrapper">
   <div id="bodyWrapper">
-    <div class="checklists">
-      <div class="checklistColumns">
-        <div class="listHeader">
-          <h2>Ideas</h2>
-        </div>
-        <div class="listItem">
-          <a href="#" class="listItemName">Make a chatting program with a to-do list</a>
-          <div class="badges">
-            <div title="This card has a description/comment" class="hideIt"></div>
-            <div title="This card has 1 comment" class="hideIt"></div>
+    <div class="checklists container-fluid">
+      <div class="row no-gutters">
+        <div id="ideas" class="col-xs-12 col-sm-6 col-md-3">
+          <div class="checklistColumns">
+            <h3>Ideas</h3>
+              {{> listItem}}
+
+            <div class="listItem">
+              <a href="#" class="listItemName">THIS IS STATIC Make a chatting program with a to-do list</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <div class="listItem">
+              <a href="#" class="listItemName">THIS IS STATIC Punch the wall...repeatedly</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <section class="row">
+              <div class="col-xs-4"></div>
+              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
+              <div class="col-xs-4"></div>
+            </section>
           </div>
         </div>
+        <div class="clearfix visible-xs-block"></div>
 
-        <button type="submit" class="addOneButton">&boxVH;</button>
+        <div id="todos" class="col-xs-12 col-sm-6 col-md-3">
+          <div class="checklistColumns">
+            <h3>To Do's</h3>
+            <div class="listItem">
+              <a href="#" class="listItemName">break down each page by segments</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <div class="listItem">
+              <a href="#" class="listItemName">code each segments</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <section class="row">
+              <div class="col-xs-4"></div>
+              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
+              <div class="col-xs-4"></div>
+            </section>
+          </div>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
+        <div class="clearfix visible-sm-block"></div>
+
+        <div id="doing" class="col-xs-12 col-sm-6 col-md-3">
+          <div class="checklistColumns">
+            <h3>In Progress</h3>
+            <div class="listItem">
+              <a href="#" class="listItemName">copy trello by sections</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <div class="listItem">
+              <a href="#" class="listItemName">code in the empty divs of all segments</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <section class="row">
+              <div class="col-xs-4"></div>
+              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
+              <div class="col-xs-4"></div>
+            </section>
+          </div>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
+
+        <div id="done" class="col-xs-12 col-sm-6 col-md-3">
+          <div class="checklistColumns">
+            <h3>Completed</h3>
+            <div class="listItem">
+              <a href="#" class="listItemName">stare at the project in awe</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <div class="listItem">
+              <a href="#" class="listItemName">draw layout of different pages</a>
+              <hr />
+              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+              <div class="clearFloat"></div>
+            </div>
+            <section class="row">
+              <div class="col-xs-4"></div>
+              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
+              <div class="col-xs-4"></div>
+            </section>
+          </div>
+        </div>
+        <div class="clearfix visible-xs-block"></div>
       </div>
-
-      <div class="checklistColumns">
-        <div class="listHeader">
-          <h2>To Do's</h2>
-        </div>
-        <div class="listItem">
-          <a href="#" class="listItemName">break down each page by segments</a>
-          <div class="badges">
-            <div title="This card has a description/comment" class="hideIt"></div>
-            <div title="This card has 1 comment" class="hideIt"></div>
-          </div>
-        </div>
-        <div class="listItem">
-          <a href="#" class="listItemName">code each segments</a>
-          <div class="badges">
-            <div title="This card has a description/comment" class="hideIt"></div>
-            <div title="This card has 1 comment" class="hideIt"></div>
-          </div>
-        </div>
-        <button type="submit" class="addOneButton">&boxVH;</button>
-      </div>
-
-      <div class="checklistColumns">
-        <div class="listHeader">
-          <h2>In Progress</h2>
-        </div>
-        <div class="listItem">
-          <a href="#" class="listItemName">copy trello by sections</a>
-          <div class="badges">
-            <div title="This card has a description/comment" class="hideIt"></div>
-            <div title="This card has 1 comment" class="hideIt"></div>
-          </div>
-        </div>
-        <div class="listItem">
-          <a href="#" class="listItemName">code in the empty divs of all segments</a>
-          <div class="badges">
-            <div title="This card has a description/comment" class="hideIt"></div>
-            <div title="This card has 1 comment" class="hideIt"></div>
-          </div>
-        </div>
-        <button type="submit" class="addOneButton">&boxVH;</button>
-      </div>
-
-      <div class="checklistColumns">
-        <div class="listHeader">
-          <h2>Completed</h2>
-        </div>
-        <div class="listItem">
-          <a href="#" class="listItemName">stare at the project in awe</a>
-          <div class="badges">
-            <div title="This card has a description/comment" class="hideIt"></div>
-            <div title="This card has 1 comment" class="hideIt"></div>
-          </div>
-        </div>
-        <div class="listItem">
-          <a href="#" class="listItemName">draw layout of different pages</a>
-          <div class="badges">
-            <div title="This card has a description/comment" class="hideIt"></div>
-            <div title="This card has 1 comment" class="hideIt"></div>
-          </div>
-        </div>
-        <button type="submit" class="addOneButton">&boxVH;</button>
-      </div>
-
     </div>
   </div>
+</template>
 
+<template name="cardWindow">
   <div id="cardWindow" class="hideIt"><!-- whole page wrapper -->
     <div class="cardWrapper"><!-- div big enough to contain card info and centered-->
       <div class="cardHeader">
@@ -175,15 +240,53 @@
 
     </div>
   </div>
+</template>
 
+<template name="chattingRoom">
   <div id="chattingRoom" class="hideIt">
   </div>
 </template>
 
 <template name="footer">
-  <div class="row" id="footer">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">Copyright 2015, Commando Chat.</div>
-    <div class="col-md-2"></div>
+  <div class="" id="footer">
+    <div class=""></div>
+    <div class="">Copyright 2015, Commando Chat.</div>
+    <div class=""></div>
   </div>
+</template>
+
+<template name="mainDisplay">
+  <header>
+    {{> headerWrapper}}
+  </header>
+  {{> bodyWrapper}}
+  {{> cardWindow}}
+  {{> chattingRoom}}
+  {{> footer}}
+</template>
+
+<template name="loading">
+  {{>spinner}}
+</template>
+
+<template name="notFound">
+  <br />
+  <br />
+  <section class="row centerIt">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+      <h1>WHAT IS YOUR MAJOR MALFUNCTION <strong>NUMBNUTS</strong>?!?!</h1>
+      <hr />
+      <h1>ENTER YOUR URL CORRECTLY <strong>MAGGOT</strong>!!!</h1>
+    </div>
+    <div class="col-xs-2"></div>   
+  </section>
+  <section class="row centerIt">
+    <div class="col-xs-3"></div>
+    <div class="col-xs-6"><hr /></div>
+    <div class="col-xs-3"></div>
+  </section>
+  <h3 class="centerIt">Love, Commando Chat</h3>
+  <br />
+  <br />
 </template>
