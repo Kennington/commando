@@ -27,6 +27,8 @@
   </nav>
 </template> -->
 
+
+
 <template name="loginPage">
   <div class="centerIt">
     <p>Only the manliest of men will enter...</p>
@@ -36,7 +38,9 @@
       <div class="col-xs-8"><hr /></div>
       <div class="col-xs-2"></div>
     </section>
-    <h3>login now:</h3>
+    <!-- enter cartoon sergeant image here -->
+    <h3>What's it gonna be:</h3>
+    <br />
     {{> loginButtons}}
     <br />
     <br />
@@ -71,15 +75,41 @@
   </nav>
 </template>
 
+<template name="listColumn">
+  {{#each categoryList}}
+    <div id="{{dbTitle}}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="checklistColumns">
+        <h3>{{headerTitle}}</h3>
+          {{> listItem}}
+        <section class="row">
+          <div class="col-xs-4"></div>
+          <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
+          <div class="col-xs-4"></div>
+        </section>
+      </div>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    {{#if smClearFix}}
+      <div class="clearfix visible-sm-block"></div>
+    {{/if}}
+    {{#if mdClearFix}}
+      <div class="clearfix visible-md-block"></div>
+    {{/if}}
+    {{#if lgClearFix}}
+      <div class="clearfix visible-lg-block"></div>
+    {{/if}}
+  {{/each}}
+</template>
+
 <template name="listItem">
   {{#each posts}}
     <div class="listItem">
-      <a href="#">{{description}}</a>
+      <a href="#">{{descriptionFinder}}</a>
       <hr />
-      {{#if dateUpdated!=null}}
+      {{#if isUpdated}}
         <div class="badges" title="This card has been Updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
       {{/if}}
-      {{#if comments!=null}}
+      {{#if isCommented}}
         <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
       {{/if}}
       <div class="clearFloat"></div>
@@ -91,151 +121,74 @@
   <div id="bodyWrapper">
     <div class="checklists container-fluid">
       <div class="row no-gutters">
-        <div id="ideas" class="col-xs-12 col-sm-6 col-md-3">
-          <div class="checklistColumns">
-            <h3>Ideas</h3>
-              {{> listItem}}
-
-            <div class="listItem">
-              <a href="#" class="listItemName">THIS IS STATIC Make a chatting program with a to-do list</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <div class="listItem">
-              <a href="#" class="listItemName">THIS IS STATIC Punch the wall...repeatedly</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <section class="row">
-              <div class="col-xs-4"></div>
-              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
-              <div class="col-xs-4"></div>
-            </section>
-          </div>
-        </div>
-        <div class="clearfix visible-xs-block"></div>
-
-        <div id="todos" class="col-xs-12 col-sm-6 col-md-3">
-          <div class="checklistColumns">
-            <h3>To Do's</h3>
-            <div class="listItem">
-              <a href="#" class="listItemName">break down each page by segments</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <div class="listItem">
-              <a href="#" class="listItemName">code each segments</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <section class="row">
-              <div class="col-xs-4"></div>
-              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
-              <div class="col-xs-4"></div>
-            </section>
-          </div>
-        </div>
-        <div class="clearfix visible-xs-block"></div>
-        <div class="clearfix visible-sm-block"></div>
-
-        <div id="doing" class="col-xs-12 col-sm-6 col-md-3">
-          <div class="checklistColumns">
-            <h3>In Progress</h3>
-            <div class="listItem">
-              <a href="#" class="listItemName">copy trello by sections</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <div class="listItem">
-              <a href="#" class="listItemName">code in the empty divs of all segments</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <section class="row">
-              <div class="col-xs-4"></div>
-              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
-              <div class="col-xs-4"></div>
-            </section>
-          </div>
-        </div>
-        <div class="clearfix visible-xs-block"></div>
-
-        <div id="done" class="col-xs-12 col-sm-6 col-md-3">
-          <div class="checklistColumns">
-            <h3>Completed</h3>
-            <div class="listItem">
-              <a href="#" class="listItemName">stare at the project in awe</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <div class="listItem">
-              <a href="#" class="listItemName">draw layout of different pages</a>
-              <hr />
-              <div class="badges" title="This card has a updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
-              <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
-              <div class="clearFloat"></div>
-            </div>
-            <section class="row">
-              <div class="col-xs-4"></div>
-              <div class="col-xs-4 oneMoreButton"><a href="#">&boxVH; Add MOAR!! &boxVH;</a></div>
-              <div class="col-xs-4"></div>
-            </section>
-          </div>
-        </div>
-        <div class="clearfix visible-xs-block"></div>
+        {{> listColumn}}
       </div>
     </div>
+    {{#if itemClicked}}
+      {{> cardWindow}}
+    {{/if}}
   </div>
 </template>
 
+<template name="listComment">
+  {{#if hasComments}}
+    {{#each commentsFoundById}}
+      <div class="Media">
+        <img class="Media-figure Media--center" src="/images/abc.jpg" alt="profileName from FB/Google+/Twitter">
+        <!-- add a mini sergeant/rank logo next to pic -->
+        <p class="Media-body"><b>{{commentUser}}:</b> {{commentContents}} <em class="abc">on {{commentDate}}</em></p>
+      </div>
+    {{/each}}
+  {{else}}
+    <div class="Media Media--center">
+      <p><i>No comments added yet, Share your thoughts now!</i></p>
+    </div>
+  {{/if}}
+</template>
+
 <template name="cardWindow">
-  <div id="cardWindow" class="hideIt"><!-- whole page wrapper -->
+  <div id="cardWindow" class="{{hideIt}}"><!-- whole page wrapper -->
     <div class="cardWrapper"><!-- div big enough to contain card info and centered-->
-      <div class="cardHeader">
-        <span class="cardImageGlyphicon"></span>
-        <h3>Title = The Name of the Idea/ToDo/Doing/Completed Task (listItemName)</h3>
-        <a href="#" id="exitButton">X</a>
+      <div class="cardHeaders">
+        <h3><b>{{cardHeader}}</b></h3>
+        <a href="#" id="exitButton">&times;</a>
       </div>
 
       <div class="cardBody">
-        <div class="cardDescriptions">
-          <h3>Description</h3>
-          <p>spit out text from the DB here stored in this particular document</p>
+        <hr />
+
+        <div class="cardHeaders Media Media--center">
+          <span class="cardIcons glyphicon glyphicon-align-justify"></span>
+          <h3 class="Media-body">Description</h3>
         </div>
+        <p>{{cardDescription}}</p>
+
         <div class="cardOptions">
           <a href="#">Share</a>
+          <br />
           <a href="#">Task Status (drop down choice of Ideas/ToDo/Doing/Done)</a>
         </div>
+        <hr />
       </div>
 
-      <hr />
-
-      <div class="cardLogs">
-        <div class="logHeader">
-          <span class="activityImageGlyphicon"></span>
-          <h3>Activity</h3>
+      <div class="cardComments">
+        <div class="cardHeaders Media Media--center">
+          <span class="cardIcons glyphicon glyphicon-comment"></span>
+          <h3 class="Media-body">Comments</h3>
         </div>
-        <div class="activityLogs">
-          <div class="individualLogs Media Media--center">
+
+        <div class="commentsLog">
+          {{> listComment}}
+          <div class="Media Media--center">
             <img class="Media-figure" src="/images/abc.jpg" alt="profileName from FB/Google+/Twitter">
-            <!-- add mini sergeant logo next to pic -->
-            <p class="Media-body">this is the text for ABC {date}</p>
+            <!-- add a mini sergeant/rank logo next to pic -->
+            <form>
+              <input class="Media-body" name="addComment" type="text" placeholder="Add your comment here" />
+              <input type="submit" value="Add Comment">
+            </form>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -250,7 +203,7 @@
 <template name="footer">
   <div class="" id="footer">
     <div class=""></div>
-    <div class="">Copyright 2015, Commando Chat.</div>
+    <div class="">Copyright 2015, Commando Chat</div>
     <div class=""></div>
   </div>
 </template>
