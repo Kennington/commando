@@ -1,0 +1,32 @@
+<template name="chatroom">
+  <div id="chatroom" class="{{hideChatroom}}">
+    <div class="dimBackground">
+      <div class="popUpWindow">
+        <div class="cardHeaders">
+          <h3><b>War Room</b></h3>
+          <a href="#" class="exitButton">&times;</a>
+        </div>
+
+        <div class="cardBody">
+          <hr />
+          <p class="messaging">
+            <br />
+            Message: <input autofocus="autofocus" type="text" id="messageInput" name="messageInput">
+            <br />
+            <br />
+          </p>
+          <div>
+            {{#each messages}}
+              <div class="Media">
+                <img class="Media-figure" src="/images/abc.jpg" alt="profileName from FB/Google+/Twitter">
+                <!-- add a mini sergeant/rank next to pic -->
+                <p class="Media-body bubbleChat"><strong>{{username}}:&nbsp;</strong>{{messageContent}}<br /></p>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

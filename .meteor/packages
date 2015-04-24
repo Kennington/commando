@@ -14,5 +14,3 @@ iron:router
 twbs:bootstrap
 sacha:spin
 fortawesome:fontawesome
-insecure
-autopublish

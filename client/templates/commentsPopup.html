@@ -1,0 +1,80 @@
+<template name="commentSection">
+  <div id="commentSection" class="{{showOrHide}}">
+    <div class="dimBackground">
+      <div class="popUpWindow">
+        <div class="cardHeaders">
+          <h3><b>{{cardHeader}}</b></h3>
+          <a href="#" class="exitButton">&times;</a>
+        </div>
+
+        <div class="cardBody">
+          <hr />
+          <div class="cardHeaders Media Media--center">
+            <span class="cardIcons glyphicon glyphicon-align-justify"></span>
+            <h3 class="Media-body">Description</h3>
+          </div>
+          <p>
+            {{cardDescription}}
+          </p>
+
+          <div class="cardOptions container-fluid">
+            <br />
+            <div class="row">
+              <form id="updateTask">
+                <fieldset>
+                  <label for="updateTaskDropdown">Update task status here:&nbsp;</label>
+                  <select id="updateTaskDropdown" name="updateTaskDropdown">
+                    {{#each categoryList}}
+                      <option {{selector}} value="{{dbTitle}}">{{headerTitle}}</option>
+                    {{/each}}
+                    <option value="changeCategory">(Change Category)</option>
+                  </select>
+
+                  {{#if showTextInput}}
+                    <input type="text" name="changeCategory" placeholder="Enter new category here">
+                  {{/if}}
+
+                </fieldset>
+
+                <fieldset>
+                  <label for="updateTaskSubmit">&nbsp;</label>
+                  <input class="updateTaskSubmit" name="updateTaskSubmit" type="submit" value="Update Now">
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardComments">
+          <hr />
+          <div class="cardHeaders Media Media--center">
+            <span class="cardIcons glyphicon glyphicon-comment"></span>
+            <h3 class="Media-body">Comments</h3>
+          </div>
+
+          <div class="commentsLog">
+            {{> listComment}}
+            <div class="Media Media--center">
+              <img class="Media-figure" src="/images/abc.jpg" alt="profileName from FB/Google+/Twitter">
+              <!-- add a mini sergeant/rank logo next to pic -->
+              {{#if loggedIn}}
+                <form id="addComment">
+                  <fieldset class="commentText">
+                    <label for="commentText"></label>
+                    <input class="Media-body" name="commentText" type="text" placeholder="Add your comment here" />
+                  </fieldset>
+                  <fieldset class="addCommentSubmitButton">
+                    <label for="addCommentSubmitButton"></label>
+                    <input name="addCommentSubmitButton" type="submit" value="Add Comment">
+                  </fieldset>
+                </form>
+              {{else}}
+                <p>Please sign in to comment!</p>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

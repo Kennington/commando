@@ -1,0 +1,39 @@
+<template name="signUp">
+  <div class="signUpPage centerIt">
+    <section class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8"><hr /></div>
+      <div class="col-xs-2"></div>
+    </section>
+    {{#if RNG}}
+      <p>Manliness is not given but earned in battles</p>
+    {{else}}
+      <p>Live the life of Real Men</p>
+    {{/if}}
+    <!-- enter cartoon sergeant image here -->
+    <h3>Glad you're manning up, son:</h3>
+    <br />
+    <form id="signUpForm" method="post">
+      <fieldset>
+        <label for="username">Give yourself a code name:</label>
+        <input id="username" name="userName" placeholder="(Username)" type="text" >
+      </fieldset>
+      <fieldset>
+        <label for="signUpEmail">Now what's your email:</label>
+        <input id="signUpEmail" name="email" placeholder="(Email Address)" type="text" >
+      </fieldset>
+      <fieldset>
+        <label for="signUpPassword">Think real hard on this one:</label>
+        <input id="signUpPassword" name="password" placeholder="(Password)" type="password">
+      </fieldset>
+      <fieldset>
+        <label for="signUpPasswordConfirm">'cus ya need it here:</label>
+        <input id="signUpPasswordConfirm" name="confirmPassword" placeholder="(Confirm Password)" type="password">
+      </fieldset>
+      <br />
+      <input class="submitButton" type="submit" form="signUpForm" value="Become a Private">
+    </form>
+    <br />
+    <input class="cancelButton" type="submit" value="Don't pussy out">
+  </div>
+</template>

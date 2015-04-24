@@ -1,0 +1,20 @@
+<template name="layout">
+  <div id="main">
+    <header>
+      {{> headerWrapper}}
+    </header>
+
+    <div id="centerContent">
+      <div class="checklists container-fluid">
+        <div class="row no-gutters">
+          {{> yield}}
+        </div>
+      </div>
+    </div>
+
+    {{> commentSection}}
+    {{> addItem}}
+    {{> chatroom}}
+    {{> footer}}
+  </div>
+</template>

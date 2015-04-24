@@ -1,0 +1,36 @@
+<template name="addItem">
+  <div id="addItem" class="{{hideIt}}">
+    <div class="dimBackground">
+      <div class="popUpWindow">
+        <div class="cardHeaders">
+          <h3><b>Add New Post!</b></h3>
+          <a href="#" class="exitButton">&times;</a>
+        </div>
+
+        <div class="cardBody">
+          <hr />
+          <br />
+          <form id="addNewPost" method="post">
+            <fieldset>
+              <label for="dropdownSelector">Category:</label>
+              <select class="dropdownSelector" name="dropdownSelector">
+                {{#each categoryList}}
+                  <option {{selector}} value="{{dbTitle}}">{{headerTitle}}</option>
+                {{/each}}
+              </select>
+            </fieldset>
+            <fieldset>
+              <label for="newDescription">Description:</label>
+              <textarea id="newDescription" name="newDescription" placeholder="A detailed description of your task"></textarea>
+            </fieldset>
+            <br />
+            <fieldset>
+              <label for="addButton"></label>
+              <input class="addButton" type="submit" value="Add NOW!">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

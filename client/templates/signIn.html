@@ -1,0 +1,35 @@
+<template name="signIn">
+  <div class="signUpPage centerIt">
+    <section class="row">
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8"><hr /></div>
+      <div class="col-xs-2"></div>
+    </section>
+    {{#if RNG}}
+      <p>Nothing but manliness</p>
+    {{else}}
+      <p>It's okay to be a man, but every man needs a challenge</p>
+    {{/if}}
+    <!-- enter cartoon sergeant image here -->
+    {{#if RNG}}
+      <h3>You remind me of my army days:</h3>
+    {{else}}
+      <h3>Then get a move on:</h3>
+    {{/if}}
+    <br />
+    <form id="signInForm" method="post">
+      <fieldset>
+        <label for="signInEmail">Verify yourself:</label>
+        <input id="signInEmail" type="text" name="email" placeholder="(Email Address)">
+      </fieldset>
+      <fieldset>
+        <label for="signInPassword">Hope you remember this one:</label>
+        <input id="signInPassword" type="password" name="password" placeholder="(Password)">
+      </fieldset>
+      <br />
+      <input class="submitButton" type="submit" value="Enter Frontlines">
+    </form>
+    <br />
+    <input class="cancelButton" type="submit" value="I ain't ready yet">
+  </div>
+</template>

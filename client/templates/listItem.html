@@ -1,0 +1,18 @@
+<template name="listItem">
+  {{#each posts}}
+    <div class="listItem">
+      {{descriptionFinder}}
+      {{#if deleteListItem}}
+        <a href="#" class="deleteButton">&times;</a>
+      {{/if}}
+      <hr />
+      {{#if isUpdated}}
+        <div class="badges" title="This card has been Updated">&nbsp;<span class="fa fa-align-justify"></span>&nbsp;</div>
+      {{/if}}
+      {{#if isCommented}}
+        <div class="badges" title="This card has a comment">&nbsp;<span class="fa fa-comment"></span></div>
+      {{/if}}
+      <div class="clearFloat"></div>
+    </div>
+  {{/each}}
+</template>

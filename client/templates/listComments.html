@@ -1,0 +1,18 @@
+<template name="listComment">
+  {{#if hasComments}}
+    {{#each commentsFoundById}}
+      <div class="Media Media--center">
+        <img class="Media-figure" src="/images/abc.jpg" alt="profileName from FB/Google+/Twitter">
+        <!-- add a mini sergeant/rank logo next to pic -->
+        <p class="Media-body"><b>{{commentUser}}:</b>&nbsp;{{commentContents}}.&nbsp;&nbsp;&nbsp;<em class="commentDateColor">{{commentDate}}</em></p>
+        {{#if sameUser}}
+          <a href="#" class="deleteButton"><b>&times;</b></a>
+        {{/if}}
+      </div>
+    {{/each}}
+  {{else}}
+    <div class="Media Media--center">
+      <p><i>No comments added yet, Share your thoughts now!</i></p>
+    </div>
+  {{/if}}
+</template>
