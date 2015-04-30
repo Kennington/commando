@@ -11,6 +11,7 @@ accounts-twitter
 accounts-google
 accounts-password
 iron:router
-twbs:bootstrap
 sacha:spin
 fortawesome:fontawesome
+materialize:materialize
+fourseven:scss

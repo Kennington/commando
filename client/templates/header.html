@@ -1,24 +1,27 @@
 <template name="headerWrapper">
-  <nav id="headerWrapper" class="navbar navbar-default">
-    <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li class="headerItems col-sm-1">
-          <!-- <a href="#" id="updateAccount" class="navbarTopMargin"><img src="/images/sergeant.jpg"></a> -->
-        </li>
-        <li class="headerItems col-sm-3">
-          <div class="navbarTopMargin">
-            <input type="text" />
-            <a href="#"><span class="glyphicon glyphicon-search"></span></a>
-          </div>
-        </li>
-        <li class="headerItems col-sm-6"><h1>Commando Chat</h1></li>
-        {{#if loggedIn}}
-          <li class="headerItems col-sm-2"><a class="signOut navbarTopMargin" href="{{pathFor 'home'}}">Sign Out</a></li>
-        {{else}}
-          <li class="headerItems col-sm-1"><a class="navbarTopMargin" href="{{pathFor 'signUp'}}">Sign Up</a></li>
-          <li class="headerItems col-sm-1"><a class="navbarTopMargin" href="{{pathFor 'signIn'}}">Log In</a></li>
-        {{/if}}
-      </ul>
+  <div id="headerWrapper" class="container">
+    <div class="row">
+      <div class="col s4">
+        <img id="logo" src="/images/sergeant_cropped.jpg">
+      </div>
+      <div class="col s8 headerTitle">
+        <h3><b>Commando Chat</b></h3>
+      </div>
+      {{#if loggedIn}}
+        <div class="col s4 searchIcon">
+          <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+        </div>
+        <div class="col s4 signOut">
+          <a href="{{pathFor 'home'}}">Sign Out</a>
+        </div>
+      {{else}}
+        <div class="col s4 signUp">
+          <a href="{{pathFor 'signUp'}}">Sign Up</a>
+        </div>
+        <div class="col s4 signIn">
+          <a href="{{pathFor 'signIn'}}">Log In</a>
+        </div>
+      {{/if}}
     </div>
-  </nav>
+  </div>
 </template>
